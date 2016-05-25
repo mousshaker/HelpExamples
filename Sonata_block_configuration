@@ -1,0 +1,48 @@
+# Sonata block configuration
+sonata_block:
+default_contexts: [cms]
+blocks:
+    sonata.user.block.menu:
+    sonata.user.block.account:
+    sonata.block.service.text:
+    sonata.admin.block.stats:
+    sonata.admin.block.admin_list:
+        contexts:   [admin]
+
+
+# Sonata block configuration
+sonata_block:
+    default_contexts: [sonata_page_bundle]
+    blocks:
+        sonata.user.block.menu:
+        sonata.user.block.account:
+        sonata.block.service.text:
+        sonata.admin.block.stats:
+        sonata.admin.block.admin_list:
+            contexts:   [admin]
+
+
+class:    col-lg-3 col-xs-6          # twitter bootstrap responsive code
+position: top                        # zone in the dashboard
+type:     sonata.block.service.stat   # block id
+settings:
+    code:  sonata.page.admin.page    # admin code - service id
+    icon:  fa-magic                  # font awesome icon
+    text:  Edited Pages
+    color: bg-yellow                 # colors: bg-green, bg-red and bg-aqua
+    filters:                         # filter values
+        edited: { value: 1 }
+
+
+position: top
+class: col-md-12
+type: sonata.block.service.stat
+
+
+
+
+
+SELECT * from periode_ouvree
+Inner join cloture ON cloture.id_annee_scolaire = periode_ouvree.id_annee_scolaire
+AND cloture.date_debut BETWEEN (periode_ouvree.date_debut and periode_ouvree.date_fin)
+AND cloture.date_fin_saisie <= periode_ouvree.date_fin
