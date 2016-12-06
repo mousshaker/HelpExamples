@@ -46,3 +46,19 @@ SELECT * from periode_ouvree
 Inner join cloture ON cloture.id_annee_scolaire = periode_ouvree.id_annee_scolaire
 AND cloture.date_debut BETWEEN (periode_ouvree.date_debut and periode_ouvree.date_fin)
 AND cloture.date_fin_saisie <= periode_ouvree.date_fin
+
+
+
+/**
+     * Set adresseTuteur
+     *
+     * @param \ARS\Bundle\AdminBundle\Entity\Tuteur adresseTuteur
+     *
+     * @return Eleve
+     */
+    public function setAdresseTuteur(\ARS\Bundle\AdminBundle\Entity\Tuteur $adresseTuteur = null)
+    {
+        $this->tuteur->setAdresse() = $adresseTuteur;
+
+        return $this;
+    }
